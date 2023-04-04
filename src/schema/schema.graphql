@@ -1,0 +1,61 @@
+type Branch {
+  _id: ID!
+  name: String!
+  address: String!
+  phoneNumber1: String
+  phoneNumber2: String
+  phoneNumber3: String
+  Latitude: Float
+  Longitude: Float
+  City: String
+  Description: String
+  createdAt: String
+  updatedAt: String
+  Sector: String
+  Timing: String
+  deliveryArea: String
+}
+
+input UpdateBranchDataInput {
+  name: String
+  address: String
+  phoneNumber1: String
+  phoneNumber2: String
+  phoneNumber3: String
+  Latitude: Float
+  Longitude: Float
+  City: String
+  Description: String
+  Sector: String
+  Timing: String
+  deliveryArea: String
+}
+
+input CreateBranchInput {
+  name: String!
+  address: String!
+  phoneNumber1: String
+  phoneNumber2: String
+  phoneNumber3: String
+  Latitude: Float
+  Longitude: Float
+  City: String
+  Description: String
+  Sector: String
+  Timing: String
+  deliveryArea: String
+}
+
+type Mutation {
+  createBranch(input: CreateBranchInput!): Branch
+  deleteBranch(name: String!): Branch
+  updateBranchData(name: String!, input: UpdateBranchDataInput): Branch
+  # updateAdminAccount(UserRole: String): Boolean
+}
+
+type Query {
+  branches: [Branch]
+  getBranchByName(name: String!): Branch
+  getRiderCount(name: String!): Int!
+  getBranchByCityName(City: String): [Branch]
+}
